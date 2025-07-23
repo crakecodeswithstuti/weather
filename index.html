@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Report</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container" id="background">
+    <section class="main">
+  <h1>Weather Report</h1>
+  
+  <div class="top-controls">
+    <button id="langToggle">🌐 हिन्दी</button>
+    <button id="themeToggle">🌙</button>
+  </div>
+
+  <section class="inputs">
+    <input type="text" placeholder="Enter Your City Name..." id="cityinput">
+    <input type="submit" value="Submit" id="add">
+    <button id="locateBtn">📍 Use My Location</button>
+
+  </section>
+
+  <div class="loader" id="loader" style="display: none;"></div>
+
+  <section class="display fade-in" id="weatherDisplay" style="display: none;">
+    <div class="wrapper">
+      <h2 id="cityoutput"><i class="fas fa-map-marker-alt"></i> <span></span></h2>
+      <p id="description"><i class="fas fa-cloud"></i> <span></span></p>
+      <p id="temp"><i class="fas fa-thermometer-half"></i> <span></span></p>
+      <p id="wind"><i class="fas fa-wind"></i> <span></span></p>
+      <p id="aqi"><i class="fas fa-smog"></i> <span></span></p>
+      <p id="healthTip"><i class="fas fa-heartbeat"></i> <span></span></p>
+    </div>
+  </section>
+
+  <section class="forecast fade-in" id="forecastSection" style="display: none;">
+    <h3>7-Day Forecast</h3>
+    <div id="forecastCards" class="forecast-cards"></div>
+  </section>
+
+  <div id="weatherAnim"></div>
+</section>
+
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

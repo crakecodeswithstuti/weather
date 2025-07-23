@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.main h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px #444;
+}
+
+.inputs {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.inputs input[type="text"] {
+  padding: 10px 15px;
+  width: 70%;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #ffffffdd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.inputs input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px #4fc3f7;
+}
+
+.inputs input[type="submit"] {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0288d1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.inputs input[type="submit"]:hover {
+  background-color: #0277bd;
+}
+
+.display {
+  text-align: center;
+}
+
+.wrapper {
+  background-color: #ffffffee;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #0288d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.wrapper p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.wrapper p span {
+  font-weight: bold;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .inputs input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .inputs input[type="submit"] {
+    width: 100%;
+  }
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #0288d1;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.forecast {
+  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.forecast h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.forecast-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px 15px;
+  width: 90px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.top-controls button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ffffffaa;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.top-controls button:hover {
+  background-color: #e0e0e0;
+}
+
+#weatherAnim {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.rain::after, .snow::after, .fog::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: move 3s linear infinite;
+  background-repeat: repeat;
+  opacity: 0.3;
+}
+
+.rain::after {
+  background-image: url('https://i.ibb.co/vk6mpFL/rain.png');
+}
+
+.snow::after {
+  background-image: url('https://i.ibb.co/F35sXvv/snow.png');
+}
+
+.fog::after {
+  background-image: url('https://i.ibb.co/Mkw6bw4/fog.png');
+}
+
+@keyframes move {
+  from { background-position: 0 0; }
+  to { background-position: 0 100vh; }
+}
+
+body.dark {
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: #ffffff;
+}
+
+body.dark .container {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .wrapper {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+}
+
+body.dark .inputs input[type="submit"] {
+  background-color: #333;
+}
